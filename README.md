@@ -70,7 +70,7 @@ Answer:
 
 Count carefully.  This one is tricky.
 
-![](http://erikahoward.ca/wp-content/uploads/2013/04/You-can-do-it-BABY.jpg)
+![](https://s3-us-west-2.amazonaws.com/curriculum-content/web-development/algorithms/You-can-do-it-BABY.jpg)
 
 
 Ok, this is tricky.  The length of the cart is n, so we will have to go through the body of our first loop n times.  Given the cart above we will have to go through the body of the code five times.  Now what is the cost of each traversal through the body of loop 1.  That is, what is the cost of each traversal loop 2?  
@@ -110,7 +110,7 @@ Write a function using two `for` loops to determine if all of the numbers are un
 
 When you're done, you can look at the solution below.
 
-![](https://media.giphy.com/media/xHgVaJ9zySg80/giphy.gif)
+![](https://s3-us-west-2.amazonaws.com/curriculum-content/web-development/algorithms/trabek.gif)
 
 Ok, let's answer this in parts.  First, here's the code.
 
@@ -166,8 +166,9 @@ Well how would you do this if we gave you a stack of credit cards.  Well, knowin
 3. Now what if we want to know if the sorted list of credit cards is the same as as an eight digit number we choose.  What technique would we employ?  What is the big O of a function we would write?  (You do not have to write out the function.)  
 
 ```javascript
+let creditCards = [11234198, 81812212, 40924922, 
+11234198, 21128218, 10219219, 81209821]
 
-let creditCards = [11234198, 81812212, 40924922, 11234198, 21128218, 10219219, 81209821]
 creditCards.sort()
 
 ```
