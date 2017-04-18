@@ -1,7 +1,7 @@
 # Big O Shopping
 
 ## Objectives
-* Practice calculating the big o by reading functions
+* Practice calculating the big O by reading functions
 * Practice spotting hidden loops
 
 
@@ -9,13 +9,13 @@
 
 For this lab we want to use our knowledge of big O to write some functions for our online store, as well as consider the time complexity of some of our existing functions.  
 
-> Note: From this point on, we will be using big o to calculate how long an algorithm takes to run.  If you come across other mechanisms of calculating time complexity outside of this curriculum, they are mentioning alternatives to considering the worst case scenario, which would not be big o.  However, as explained earlier, considering worst case is preferred.  
+> Note: From this point on, we will be using big O to calculate how long an algorithm takes to run.  If you come across other mechanisms of calculating time complexity outside of this curriculum, they are mentioning alternatives to considering the worst case scenario, which would not be big O.  However, as explained earlier, considering worst case is preferred.  
 
 When answering the questions below, please do not rely on any Javascript methods like `find`, `include`, `filter`,  `indexOf`, or `sort`.  Methods like those operate through using loops.  And we are trying to see where these loops occur, and the cost of them, by implementing them directly.
 
 ## A first example
 
-Let's write a function called total that will add up a list of prices.  Essentially, we would go through each item in the list and add up each corresponding element.   What is the big O of our function `totalArray()` below.  Try to come up with some code for the function as well as an explanation before looking.
+Let's write a function called total that will add up a list of prices.  Essentially, we would go through each item in the list and add up each corresponding element.   What is the big O of our function `totalArray()` below?  Try to come up with some code for the function as well as an explanation before looking.
 
 Take out your Learn IDE, a piece of paper, or your favorite text editor and get to it.
 
@@ -31,7 +31,7 @@ function totalArray(cart) {
   let t = 0
   for (var i = 0, l = cart.length; i < l; i++) {
       // loop 1
-      t += cart[i][item]
+      t += cart[i]
   }
 
   return t
@@ -39,7 +39,7 @@ function totalArray(cart) {
 
 ```
 
-Well consider how the cost of the function changes as the size of our cart changes.  Or another way of thinking about it is how many nested loops are there that depend on the size of the array.  There is one loop that iterates through each element of the array.  So the **big O of totalArray is n**.
+Well, consider how the cost of the function changes as the size of our cart changes.  Or another way of thinking about it is how many nested loops are there that depend on the size of the array.  There is one loop that iterates through each element of the array.  So the **big O of totalArray is n**.
 
 Now consider the big O of our `total` function below.  Our function here also adds up a list of items, however now each element in our cart array is a hash, so we have to modify our function accordingly.  What is the big O of the function `total`, if we say that a cart has length of n:
 
@@ -106,7 +106,7 @@ let creditCards = [11234198, 818122128,
 
 Write a function using two `for` loops to determine if all of the numbers are unique.  The function you write may feel pretty inefficient.  What is the worst case scenario?  What is the big O of the function.  
 
-> ProTip: Answering an algorithmic question relies on process as much as anything else.  First make sure you understand the question.  Then, restate the  question in your process in words.  To help you solve the question, try to relate it in the real world.  In this case if I handed you twenty cards and asked you to tell me definitively whether they were all unique, could you do it?  How would you do it?  Write that down in words.  Then translate those words into code.  
+> ProTip: Answering an algorithmic question relies on process as much as anything else.  First, make sure you understand the question.  Then, restate the question in your own words.  To help you solve the question, try to relate it in the real world.  In this case if I handed you twenty cards and asked you to tell me definitively whether they were all unique, could you do it?  How would you do it?  Write that down in words.  Then translate those words into code.  
 
 When you're done, you can look at the solution below.
 
@@ -129,7 +129,7 @@ function allUnique(array) {
   return true;
 }
 ```
-As you can see, we answer the question by first choosing the element at index 0 in the array.  Then we look at every element except for the element at the index 0 (the current index).  When we look at every other element we are asking the question, do the first element equal any of the other elements.  If they equal each other then we return false, because we know that the array does not have all unique elements.  After considering the first element, we move on to consider every following element in the array.  As you can see we must make n comparisons n times, so big o is n^2.
+As you can see, we answer the question by first choosing the element at index 0 in the array.  Then we look at every element except for the element at the index 0 (the current index).  When we look at every other element we are asking the question, does the first element equal any of the other elements.  If they equal each other then we return false, because we know that the array does not have all unique elements.  After considering the first element, we move on to consider every following element in the array.  As you can see we must make n comparisons n times, so big O is n^2.
 
 Can you describe the worst case scenario?  Well the worst case scenario is the case in which none of the numbers are unique.  This is because if we find that one element matches another element in the array, then we can exit the function and return false.  The array does not consist of unique elements.
 
@@ -161,7 +161,7 @@ function uniqueSorted(array){
 }
 ```
 
-Well how would you do this if we gave you a stack of credit cards.  Well, knowing that they are in the right order, you could take a look at the first card and the second card, if the two did not match, you would know that the first card was unique.  Then you would go to the second card and if that did not match the third, you would no the second card was unique.  Once you got to the second to last card, you if it did not match the subsequent card you would know that the list only consisted of unique elements.  Thus, we only need to visit each element one time to solve for whether the sorted array is unique.  Therefore we write the above algorithm, which is big O(n).
+How would you do this if we gave you a stack of credit cards?  Well, knowing that they are in the right order, you could take a look at the first card and the second card, if the two did not match, you would know that the first card was unique.  Then you would go to the second card and if that did not match the third, you would no the second card was unique.  Once you got to the second to last card, you if it did not match the subsequent card you would know that the list only consisted of unique elements.  Thus, we only need to visit each element one time to solve for whether the sorted array is unique.  Therefore we write the above algorithm, which is big O(n).
 
 3. Now what if we want to know if the sorted list of credit cards is the same as as an eight digit number we choose.  What technique would we employ?  What is the big O of a function we would write?  (You do not have to write out the function.)  
 
